@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Figtree Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Sacado del logo: teal #0090A4 + naranja #FC9400 */
+  --color-brand-50: #eef7f8;
+  --color-brand-100: #d6eef1;
+  --color-brand-200: #ade0e6;
+  --color-brand-500: #0090a4;
+  --color-brand-600: #007c8e;
+  --color-brand-700: #006473;
+  --color-brand-800: #0a4f5a;
+  --color-brand-900: #0b3a42;
+  --color-accent: #fc9400;
+  --color-ink: #0e1b1f;
+  --color-muted: #50646a;
+  --color-canvas: #f2f6f7;
+  --color-line: #dde7ea;
+
+  --radius-card: 1.75rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.14em] text-brand-600;
+  }
+  .h2 {
+    @apply text-[30px] leading-[1.12] font-semibold tracking-[-0.02em] sm:text-4xl lg:text-[44px];
+  }
+  .card {
+    @apply rounded-[var(--radius-card)] bg-white ring-1 ring-line;
+  }
+}
+
+/* Reveal suave al hacer scroll; desactivado con reduced-motion */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}

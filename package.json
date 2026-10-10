@@ -1,0 +1,27 @@
+{
+  "name": "odontofas-landing",
+  "version": "1.0.0",
+  "description": "Landing OdontoFAS",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prep:images": "node scripts/prep-images.mjs && node scripts/variants.mjs"
+  },
+  "type": "module",
+  "dependencies": {
+    "@fontsource-variable/figtree": "^5.3.0",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "simple-icons": "^13.21.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@vitejs/plugin-react": "^4.5.2",
+    "sharp": "^0.34.2",
+    "tailwindcss": "^4.1.11",
+    "vite": "^6.3.5"
+  },
+  "private": true
+}
