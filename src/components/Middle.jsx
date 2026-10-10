@@ -11,7 +11,7 @@ const COMFORT = [
 
 export function Doctor() {
   return (
-    <section id="doctor" className="container-x py-20 lg:py-28">
+    <section id="doctor" className="container-x pt-16 lg:pt-24">
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
         <div className="reveal lg:col-span-5">
           <figure className="relative overflow-hidden rounded-[var(--radius-card)] bg-[#eefcfd] ring-1 ring-line">
@@ -52,14 +52,16 @@ export function Doctor() {
             </li>
           </ul>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4">
+          <div className="reveal card mt-8 divide-y divide-line sm:grid sm:grid-cols-2 sm:gap-4 sm:divide-y-0 sm:bg-transparent sm:ring-0">
             {COMFORT.map(([Icon, t, d]) => (
-              <article key={t} className="reveal card p-5 lg:p-6">
-                <span className="grid size-10 place-items-center rounded-xl bg-brand-50 text-brand-600">
-                  <Icon className="size-5" aria-hidden="true" />
+              <article key={t} className="flex gap-3.5 px-4 py-4 sm:block sm:rounded-[var(--radius-card)] sm:bg-white sm:p-6 sm:ring-1 sm:ring-line">
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand-50 text-brand-600 sm:size-10">
+                  <Icon className="size-[18px] sm:size-5" aria-hidden="true" />
                 </span>
-                <h3 className="mt-4 text-[17px] font-semibold">{t}</h3>
-                <p className="mt-1.5 text-[15px] leading-relaxed text-muted">{d}</p>
+                <span className="block">
+                  <h3 className="text-base font-semibold sm:mt-4 sm:text-[17px]">{t}</h3>
+                  <p className="mt-0.5 text-[14px] leading-snug text-muted sm:mt-1.5 sm:text-[15px] sm:leading-relaxed">{d}</p>
+                </span>
               </article>
             ))}
           </div>
@@ -71,7 +73,7 @@ export function Doctor() {
 
 export function Programs({ onPick }) {
   return (
-    <section id="programas" className="bg-brand-50/70 py-20 lg:py-28">
+    <section id="programas" className="pt-16 lg:pt-24">
       <div className="container-x">
         <SectionHead
           center
@@ -87,7 +89,7 @@ export function Programs({ onPick }) {
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-5">
           {PROGRAMS.map((p) => (
             <article key={p.key} className="reveal card flex flex-col overflow-hidden p-2.5">
-              <div className="relative overflow-hidden rounded-[1.25rem] bg-brand-100">
+              <div className="relative overflow-hidden rounded-[1.25rem] bg-canvas">
                 <img src={p.img} srcSet={`${p.img.replace(".webp", "-400.webp")} 400w, ${p.img} 720w`} sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw" alt={p.alt} width="720" height="496" loading="lazy" className="aspect-[16/11] w-full object-cover object-top" />
                 <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-[13px] font-semibold text-brand-800 shadow-sm">
                   <Clock className="size-3.5" aria-hidden="true" /> {p.tag}
@@ -133,7 +135,7 @@ export function Programs({ onPick }) {
 
 export function Membership({ onPick }) {
   return (
-    <section id="membresia" className="container-x py-20 lg:py-28">
+    <section id="membresia" className="container-x pt-16 lg:pt-24">
       <div className="relative overflow-hidden rounded-[2rem] bg-brand-800 px-5 py-12 text-white sm:px-10 lg:px-16 lg:py-20">
         <div aria-hidden="true" className="pointer-events-none absolute -right-32 -top-32 size-[420px] rounded-full bg-brand-500/30 blur-3xl" />
         <div aria-hidden="true" className="pointer-events-none absolute -bottom-40 -left-24 size-[360px] rounded-full bg-accent/10 blur-3xl" />

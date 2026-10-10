@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "prep:images": "node scripts/prep-images.mjs && node scripts/variants.mjs"
+    "preview": "vite preview"
   },
   "type": "module",
   "dependencies": {

@@ -8,7 +8,7 @@ const mapsDirections = `https://www.google.com/maps/dir/?api=1&destination=${enc
 
 export function Reviews() {
   return (
-    <section id="resenas" className="bg-white py-20 lg:py-28">
+    <section id="resenas" className="pt-16 lg:pt-24">
       <div className="container-x">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionHead
@@ -23,7 +23,7 @@ export function Reviews() {
             href={mapsSearch}
             target="_blank"
             rel="noopener noreferrer"
-            className="reveal flex w-fit items-center gap-4 rounded-2xl bg-canvas px-5 py-4 ring-1 ring-line transition-shadow hover:shadow-md"
+            className="reveal flex w-fit items-center gap-4 rounded-2xl bg-white px-5 py-4 ring-1 ring-line transition-shadow hover:shadow-md"
           >
             <GoogleIcon className="size-8 text-[#4285F4]" />
             <span>
@@ -37,7 +37,7 @@ export function Reviews() {
 
         <div className="mt-10 grid gap-4 md:grid-cols-3 lg:mt-12 lg:gap-5">
           {REVIEWS.map((r) => (
-            <figure key={r.name} className="reveal flex flex-col rounded-[var(--radius-card)] bg-canvas p-6 lg:p-7">
+            <figure key={r.name} className="reveal card flex flex-col p-6 lg:p-7">
               <Stars />
               <blockquote className="mt-4 flex-1 text-[17px] leading-relaxed">“{r.text}”</blockquote>
               <figcaption className="mt-6 flex items-center gap-3">
@@ -69,7 +69,7 @@ const STEPS = [
 
 export function Steps({ onPick }) {
   return (
-    <section className="container-x py-20 lg:py-28">
+    <section className="container-x pt-16 lg:pt-24">
       <SectionHead
         center
         eyebrow="Tu primera visita"
@@ -99,7 +99,7 @@ export function Steps({ onPick }) {
 
 export function Faq({ onPick }) {
   return (
-    <section id="preguntas" className="container-x pb-20 lg:pb-28">
+    <section id="preguntas" className="container-x pt-16 lg:pt-24">
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
         <div className="lg:col-span-4">
           <SectionHead
@@ -143,7 +143,7 @@ export function Faq({ onPick }) {
 
 export function Location({ onPick }) {
   return (
-    <section id="ubicacion" className="container-x pb-20 lg:pb-28">
+    <section id="ubicacion" className="container-x pt-16 lg:pt-24">
       <div className="card grid overflow-hidden lg:grid-cols-12">
         <div className="p-6 sm:p-10 lg:col-span-5 lg:p-12">
           <SectionHead
@@ -216,7 +216,7 @@ const PICKER = ['general', 'implantes', 'blanqueamiento', 'carillas', 'ninos', '
 export function FinalCta({ interest, onPick }) {
   const current = PICKER.includes(interest) ? interest : interest?.startsWith('care') ? 'care' : 'general';
   return (
-    <section className="container-x pb-20 lg:pb-28">
+    <section className="container-x py-16 lg:py-24">
       <div className="reveal relative overflow-hidden rounded-[2rem] bg-brand-600 px-5 py-12 text-center text-white sm:px-10 lg:py-16">
         <div aria-hidden="true" className="pointer-events-none absolute -left-20 -top-24 size-80 rounded-full bg-white/10 blur-2xl" />
         <h2 className="h2 relative mx-auto max-w-2xl">¿Listo para sonreír sin miedo?</h2>
@@ -330,7 +330,7 @@ export function FloatingWa({ interest, onPick }) {
     <>
       <div className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-white/95 px-4 pb-[calc(env(safe-area-inset-bottom)+12px)] pt-3 backdrop-blur-md lg:hidden">
         <div className="flex items-center gap-3">
-          <WaButton interest={interest} onPick={onPick} className="h-12 flex-1 !bg-[#15803d] hover:!bg-[#166534] max-[359px]:!text-sm">
+          <WaButton interest={interest} onPick={onPick} className="h-12 flex-1 max-[359px]:!text-sm">
             {label}
           </WaButton>
           <a
@@ -349,7 +349,7 @@ export function FloatingWa({ interest, onPick }) {
         rel="noopener noreferrer"
         onClick={() => onPick(interest)}
         aria-label={label}
-        className={`group fixed bottom-6 right-6 z-50 hidden items-center gap-3 rounded-full bg-[#15803d] p-4 text-white shadow-[0_12px_32px_-8px_rgb(21_128_61/0.6)] transition-[transform,opacity,padding] duration-300 hover:bg-[#166534] lg:flex ${
+        className={`group fixed bottom-6 right-6 z-50 hidden items-center gap-3 rounded-full bg-brand-600 p-4 text-white shadow-[0_12px_32px_-8px_rgb(0_124_142/0.6)] transition-[transform,opacity,padding] duration-300 hover:bg-brand-700 lg:flex ${
           pastHero ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'
         }`}
       >

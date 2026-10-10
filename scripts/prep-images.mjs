@@ -1,4 +1,5 @@
 // One-off: optimize source photos into public/img. Run: node scripts/prep-images.mjs <siteImgDir> <stockDir>
+// Las fotos de programas salen de scripts/program-images.mjs y la imagen OG de scripts/og-image.mjs.
 import sharp from 'sharp';
 import path from 'node:path';
 
@@ -11,13 +12,7 @@ const jobs = [
   [path.join(stock, 'foto hero.png'), 'hero-1600.webp', (i) => i.resize(1600)],
   [path.join(stock, 'foto hero.png'), 'hero-mobile.webp', (i) => i.extract({ left: 760, top: 0, width: 1000, height: 892 }).resize(800)],
   [S('01_doctor-fernando.png'), 'doctor-800.webp', (i) => i.resize(800)],
-  [S('01_doctor-fernando.png'), 'doctor-avatar.webp', (i) => i.extract({ left: 260, top: 90, width: 500, height: 500 }).resize(160)],
-  [S('01_clinica-dental.png'), 'clinica-800.webp', (i) => i.resize(800)],
-  // program photos: keep top part, drop the teal fade baked into the bottom
-  [S('implantes-dentales.png'), 'p-implantes.webp', (i) => i.extract({ left: 90, top: 40, width: 900, height: 620 }).resize(720)],
-  [S('blanqueamiento-dental.png'), 'p-blanqueamiento.webp', (i) => i.extract({ left: 90, top: 30, width: 900, height: 620 }).resize(720)],
-  [S('carillas-dentales-programa.png'), 'p-carillas.webp', (i) => i.extract({ left: 20, top: 0, width: 500, height: 344 }).resize(720)],
-  [S('programa-padres-hijos.png'), 'p-ninos.webp', (i) => i.extract({ left: 20, top: 40, width: 500, height: 344 }).resize(720)],
+  [S('01_doctor-fernando.png'), 'doctor-avatar.webp', (i) => i.extract({ left: 180, top: 60, width: 720, height: 720 }).resize(288)],
 ];
 
 for (const [src, name, fn] of jobs) {

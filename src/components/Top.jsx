@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MapPin, ArrowDown, BadgeCheck } from 'lucide-react';
+import { ArrowDown, BadgeCheck } from 'lucide-react';
 import { CLINIC } from '../data.js';
 import { WaButton, Stars, GoogleIcon, Hl } from './ui.jsx';
 
@@ -41,10 +41,11 @@ export function Header({ onPick }) {
             ))}
           </ul>
         </nav>
-        <WaButton onPick={onPick} className="!h-10 !px-4 text-sm lg:!h-11">
-          <span className="sm:hidden">WhatsApp</span>
-          <span className="hidden sm:inline">Escríbenos</span>
-        </WaButton>
+        <div className="hidden lg:block">
+          <WaButton onPick={onPick} className="!h-11 !px-4 text-sm">
+            Escríbenos
+          </WaButton>
+        </div>
       </div>
     </header>
   );
@@ -55,6 +56,7 @@ export function Hero({ onPick }) {
     <section id="inicio" className="container-x pt-2 lg:pt-4">
       <div className="relative overflow-hidden rounded-[2rem] bg-[#eef1f3] ring-1 ring-line lg:min-h-[640px]">
         {/* Foto: arriba en mobile, de fondo en desktop */}
+        <div className="relative lg:absolute lg:inset-0">
         <picture>
           <source media="(min-width: 640px)" srcSet="/img/hero-1600-1000.webp 1000w, /img/hero-1600.webp 1600w" sizes="(min-width: 1280px) 1216px, 100vw" />
           <img
@@ -65,9 +67,23 @@ export function Hero({ onPick }) {
             width="800"
             height="714"
             fetchpriority="high"
-            className="aspect-[16/11] w-full object-cover object-[50%_30%] sm:aspect-[2.3/1] sm:object-[70%_25%] lg:absolute lg:inset-0 lg:aspect-auto lg:h-full lg:object-[85%_center] xl:object-[70%_center]"
+            className="aspect-[4/3] w-full object-cover object-[50%_20%] sm:aspect-[2.3/1] sm:object-[70%_25%] lg:absolute lg:inset-0 lg:aspect-auto lg:h-full lg:object-[85%_center] xl:object-[70%_center]"
           />
         </picture>
+          <a
+            href="#doctor"
+            className="absolute inset-x-3 bottom-3 flex items-center gap-3 rounded-2xl bg-white/95 p-2.5 shadow-[0_8px_24px_-12px_rgb(14_27_31/0.35)] backdrop-blur sm:inset-x-auto sm:left-4 sm:bottom-4 sm:pr-5 lg:hidden"
+          >
+            <img src="/img/doctor-avatar.webp" alt="" width="60" height="60" className="size-[60px] shrink-0 rounded-xl bg-[#eefdfd] object-cover max-[359px]:size-12" />
+            <span className="min-w-0 leading-tight">
+              <span className="block text-xs font-medium text-muted">Te atiende</span>
+              <span className="flex items-center gap-1 whitespace-nowrap text-base font-semibold max-[359px]:text-[14px]">
+                Dr. Fernando Acosta <BadgeCheck className="size-4 shrink-0 text-brand-500" aria-hidden="true" />
+              </span>
+              <span className="block truncate text-[13px] text-muted">Rehabilitador oral · 16 años · USMP</span>
+            </span>
+          </a>
+        </div>
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 top-0 hidden h-full bg-gradient-to-r from-[#eef1f3] via-[#eef1f3]/85 to-transparent lg:block lg:w-[72%] xl:w-[62%]"
@@ -101,7 +117,7 @@ export function Hero({ onPick }) {
             El dentista que <Hl>te explica todo</Hl> y va <Hl>a tu ritmo</Hl>
           </h1>
           <p className="mt-4 max-w-[460px] text-[17px] lg:max-w-[420px] xl:max-w-[460px] leading-relaxed text-muted lg:mt-6 lg:text-lg">
-            Antes de empezar sabes qué te vamos a hacer, cuánto dura y cuánto cuesta. Sin apuros y sin sorpresas, en Jesús María.
+            Antes de empezar sabes qué te vamos a hacer, cuánto dura y cuánto cuesta. Sin apuros y sin sorpresas.
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center lg:mt-8">
@@ -116,26 +132,32 @@ export function Hero({ onPick }) {
             </a>
           </div>
 
-          {/* El doctor como cara de la marca */}
-          <a
-            href="#doctor"
-            className="mt-7 flex w-full items-center gap-3 rounded-2xl sm:w-fit bg-white/90 p-2.5 pr-5 shadow-sm ring-1 ring-line backdrop-blur transition-shadow hover:shadow-md max-[359px]:pr-3 lg:mt-10"
-          >
-            <img src="/img/doctor-avatar.webp" alt="" width="56" height="56" className="size-14 shrink-0 rounded-xl bg-brand-50 object-cover max-[359px]:size-12" />
-            <span className="leading-tight">
-              <span className="block text-xs font-medium text-muted">Te atiende</span>
-              <span className="flex items-center gap-1 whitespace-nowrap text-[15px] font-semibold max-[359px]:text-[14px]">
-                Dr. Fernando Acosta <BadgeCheck className="size-4 text-brand-500" aria-hidden="true" />
-              </span>
-              <span className="block whitespace-nowrap text-[13px] text-muted">Rehabilitador oral · 16 años</span>
-            </span>
-          </a>
         </div>
 
-        <p className="absolute bottom-6 right-6 hidden items-center gap-2 rounded-full bg-white/95 px-4 py-2.5 text-sm font-medium shadow-sm backdrop-blur lg:inline-flex">
-          <MapPin className="size-4 text-brand-500" aria-hidden="true" />
-          {CLINIC.address}, Jesús María
-        </p>
+        {/* Desktop: el doctor como cara de la marca */}
+        <a
+          href="#doctor"
+          className="absolute bottom-6 right-6 hidden w-[380px] items-center gap-4 rounded-[1.5rem] bg-white/95 p-3 pr-5 shadow-[0_24px_48px_-20px_rgb(14_27_31/0.35)] ring-1 ring-white backdrop-blur transition-transform duration-300 hover:-translate-y-1 lg:flex xl:bottom-8 xl:right-8"
+        >
+          <img
+            src="/img/doctor-avatar.webp"
+            alt="Dr. Fernando Acosta Soria"
+            width="120"
+            height="120"
+            className="size-[120px] shrink-0 rounded-2xl bg-[#eefdfd] object-cover object-[50%_15%]"
+          />
+          <span className="block min-w-0">
+            <span className="block text-xs font-semibold uppercase tracking-[0.12em] text-brand-600">Te atiende</span>
+            <span className="mt-1 flex items-center gap-1.5 whitespace-nowrap text-lg font-semibold leading-tight">
+              Dr. Fernando Acosta <BadgeCheck className="size-[18px] shrink-0 text-brand-500" aria-hidden="true" />
+            </span>
+            <span className="mt-0.5 block text-sm text-muted">Rehabilitador oral · USMP · COP</span>
+            <span className="mt-2.5 flex gap-2 text-[13px] font-medium">
+              <span className="rounded-lg bg-brand-50 px-2.5 py-1 text-brand-800"><b className="font-semibold">16</b> años</span>
+              <span className="rounded-lg bg-brand-50 px-2.5 py-1 text-brand-800"><b className="font-semibold">+3,000</b> pacientes</span>
+            </span>
+          </span>
+        </a>
       </div>
     </section>
   );
