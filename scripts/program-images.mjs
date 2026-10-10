@@ -16,7 +16,7 @@ const JOBS = [
 for (const j of JOBS) {
   const base = sharp(path.join(dir, j.src)).extract(j.crop);
   const buf = await base.toBuffer();
-  await sharp(buf).resize(720, 495).webp({ quality: 82 }).toFile(`public/img/${j.out}.webp`);
-  await sharp(buf).resize(400, 275).webp({ quality: 80 }).toFile(`public/img/${j.out}-400.webp`);
+  await sharp(buf).resize(720, 495).webp({ quality: 82 }).toFile(`src/assets/img/${j.out}.webp`);
+  await sharp(buf).resize(400, 275).webp({ quality: 80 }).toFile(`src/assets/img/${j.out}-400.webp`);
   console.log('ok', j.out);
 }

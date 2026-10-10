@@ -20,7 +20,7 @@ const text = `
 </svg>`;
 
 const doc = await sharp(doctor).resize(H, H).png().toBuffer();
-const logo = await sharp('public/img/logo.webp').resize(300).png().toBuffer();
+const logo = await sharp('src/assets/img/logo.webp').resize(300).png().toBuffer();
 
 await sharp({ create: { width: W, height: H, channels: 3, background: '#eefdfd' } })
   .composite([

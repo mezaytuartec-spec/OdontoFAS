@@ -1,6 +1,7 @@
 import { MessagesSquare, HeartHandshake, ReceiptText, Smartphone, GraduationCap, Award, Check, Clock, ArrowRight } from 'lucide-react';
 import { PROGRAMS, CARE_INCLUDES, CARE_DISCOUNTS, waLink } from '../data.js';
 import { WaButton, SectionHead, Hl } from './ui.jsx';
+import { img } from '../img.js';
 
 const COMFORT = [
   [MessagesSquare, 'Primero conversamos', 'Te escuchamos y revisamos sin apuros. Nada se hace sin que lo entiendas y estés de acuerdo.'],
@@ -16,8 +17,8 @@ export function Doctor() {
         <div className="reveal lg:col-span-5">
           <figure className="relative overflow-hidden rounded-[var(--radius-card)] bg-[#eefcfd] ring-1 ring-line">
             <img
-              src="/img/doctor-800.webp"
-              srcSet="/img/doctor-800-480.webp 480w, /img/doctor-800.webp 800w"
+              src={img('doctor-800.webp')}
+              srcSet={`${img('doctor-800-480.webp')} 480w, ${img('doctor-800.webp')} 800w`}
               sizes="(min-width: 1024px) 460px, 100vw"
               alt="Dr. Fernando Acosta Soria, dentista y rehabilitador oral de OdontoFAS"
               width="800"
@@ -90,7 +91,7 @@ export function Programs({ onPick }) {
           {PROGRAMS.map((p) => (
             <article key={p.key} className="reveal card flex flex-col overflow-hidden p-2.5">
               <div className="relative overflow-hidden rounded-[1.25rem] bg-canvas">
-                <img src={p.img} srcSet={`${p.img.replace(".webp", "-400.webp")} 400w, ${p.img} 720w`} sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw" alt={p.alt} width="720" height="495" loading="lazy" className="aspect-[16/11] w-full object-cover" />
+                <img src={p.img} srcSet={`${p.img400} 400w, ${p.img} 720w`} sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw" alt={p.alt} width="720" height="495" loading="lazy" className="aspect-[16/11] w-full object-cover" />
                 <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-[13px] font-semibold text-brand-800 shadow-sm">
                   <Clock className="size-3.5" aria-hidden="true" /> {p.tag}
                 </span>

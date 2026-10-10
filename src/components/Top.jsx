@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowDown, BadgeCheck } from 'lucide-react';
 import { CLINIC } from '../data.js';
 import { WaButton, Stars, GoogleIcon, Hl } from './ui.jsx';
+import { img } from '../img.js';
 
 const NAV = [
   ['El doctor', '#doctor'],
@@ -28,7 +29,7 @@ export function Header({ onPick }) {
     >
       <div className="container-x flex h-16 items-center justify-between gap-4 lg:h-[72px]">
         <a href="#inicio" className="-my-2 shrink-0 py-2" aria-label="OdontoFAS, ir al inicio">
-          <img src="/img/logo.webp" srcSet="/img/logo-300.webp 300w, /img/logo.webp 600w" sizes="155px" alt="Odontofas" width="150" height="31" className="h-7 w-auto lg:h-8" />
+          <img src={img('logo.webp')} srcSet={`${img('logo-300.webp')} 300w, ${img('logo.webp')} 600w`} sizes="155px" alt="Odontofas" width="150" height="31" className="h-7 w-auto lg:h-8" />
         </a>
         <nav aria-label="Principal" className="hidden lg:block">
           <ul className="flex items-center gap-8 text-[15px] font-medium text-muted">
@@ -58,10 +59,10 @@ export function Hero({ onPick }) {
         {/* Foto: arriba en mobile, de fondo en desktop */}
         <div className="relative lg:absolute lg:inset-0">
         <picture>
-          <source media="(min-width: 640px)" srcSet="/img/hero-1600-1000.webp 1000w, /img/hero-1600.webp 1600w" sizes="(min-width: 1280px) 1216px, 100vw" />
+          <source media="(min-width: 640px)" srcSet={`${img('hero-1600-1000.webp')} 1000w, ${img('hero-1600.webp')} 1600w`} sizes="(min-width: 1280px) 1216px, 100vw" />
           <img
-            src="/img/hero-mobile.webp"
-            srcSet="/img/hero-mobile-480.webp 480w, /img/hero-mobile.webp 800w"
+            src={img('hero-mobile.webp')}
+            srcSet={`${img('hero-mobile-480.webp')} 480w, ${img('hero-mobile.webp')} 800w`}
             sizes="100vw"
             alt="Paciente sonriendo en el consultorio"
             width="800"
@@ -74,7 +75,7 @@ export function Hero({ onPick }) {
             href="#doctor"
             className="absolute inset-x-3 bottom-3 flex items-center gap-3 rounded-2xl bg-white/95 p-2.5 shadow-[0_8px_24px_-12px_rgb(14_27_31/0.35)] backdrop-blur sm:inset-x-auto sm:left-4 sm:bottom-4 sm:pr-5 lg:hidden"
           >
-            <img src="/img/doctor-avatar.webp" alt="" width="60" height="60" className="size-[60px] shrink-0 rounded-xl bg-[#eefdfd] object-cover max-[359px]:size-12" />
+            <img src={img('doctor-avatar.webp')} alt="" width="60" height="60" className="size-[60px] shrink-0 rounded-xl bg-[#eefdfd] object-cover max-[359px]:size-12" />
             <span className="min-w-0 leading-tight">
               <span className="block text-xs font-medium text-muted">Te atiende</span>
               <span className="flex items-center gap-1 whitespace-nowrap text-base font-semibold max-[359px]:text-[14px]">
@@ -140,7 +141,7 @@ export function Hero({ onPick }) {
           className="absolute bottom-6 right-6 hidden w-[380px] items-center gap-4 rounded-[1.5rem] bg-white/95 p-3 pr-5 shadow-[0_24px_48px_-20px_rgb(14_27_31/0.35)] ring-1 ring-white backdrop-blur transition-transform duration-300 hover:-translate-y-1 lg:flex xl:bottom-8 xl:right-8"
         >
           <img
-            src="/img/doctor-avatar.webp"
+            src={img('doctor-avatar.webp')}
             alt="Dr. Fernando Acosta Soria"
             width="120"
             height="120"

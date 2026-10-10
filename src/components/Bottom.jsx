@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Plus, MapPin, Clock, Phone, Mail, Navigation, BookOpen } from 'lucide-react';
 import { CLINIC, REVIEWS, FAQS, INTERESTS, waLink } from '../data.js';
 import { WaButton, SectionHead, Hl, Stars, GoogleIcon, InstagramIcon, TiktokIcon, FacebookIcon, WhatsAppIcon } from './ui.jsx';
+import { img } from '../img.js';
 
 const mapsSearch = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('OdontoFAS ' + CLINIC.mapsQuery)}`;
 const mapsDirections = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(CLINIC.mapsQuery)}`;
@@ -253,7 +254,7 @@ export function Footer() {
     <footer className="bg-brand-900 pb-28 pt-14 text-brand-100 lg:pb-12">
       <div className="container-x grid gap-10 md:grid-cols-12">
         <div className="md:col-span-5">
-          <img src="/img/logo.webp" srcSet="/img/logo-300.webp 300w, /img/logo.webp 600w" sizes="155px" alt="Odontofas" width="150" height="31" loading="lazy" className="h-8 w-auto brightness-0 invert" />
+          <img src={img('logo.webp')} srcSet={`${img('logo-300.webp')} 300w, ${img('logo.webp')} 600w`} sizes="155px" alt="Odontofas" width="150" height="31" loading="lazy" className="h-8 w-auto brightness-0 invert" />
           <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-brand-100/80">
             Clínica dental del Dr. Fernando Acosta Soria. Odontología general, estética y rehabilitación oral en Jesús María, Lima.
           </p>

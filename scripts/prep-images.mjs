@@ -1,10 +1,10 @@
-// One-off: optimize source photos into public/img. Run: node scripts/prep-images.mjs <siteImgDir> <stockDir>
+// One-off: optimize source photos into src/assets/img. Run: node scripts/prep-images.mjs <siteImgDir> <stockDir>
 // Las fotos de programas salen de scripts/program-images.mjs y la imagen OG de scripts/og-image.mjs.
 import sharp from 'sharp';
 import path from 'node:path';
 
 const [site, stock] = process.argv.slice(2);
-const out = 'public/img';
+const out = 'src/assets/img';
 const S = (f) => path.join(site, f);
 
 const jobs = [

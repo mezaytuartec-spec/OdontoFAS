@@ -13,7 +13,7 @@ npm run build    # genera dist/
 ## Dónde se cambia cada cosa
 - Datos, programas, membresía, reseñas, FAQ y mensajes de WhatsApp: `src/data.js`
 - Colores (sacados del logo: teal `#0090A4`, naranja `#FC9400`): `src/index.css` → `@theme`
-- Imágenes optimizadas: `public/img/`. Scripts en `scripts/`: `prep-images.mjs` (hero, doctor, logo), `program-images.mjs` (recorte de las fotos de programas), `variants.mjs` (tamaños para srcset) y `og-image.mjs` (`public/og.jpg`, 1200x630)
+- Imágenes optimizadas: `src/assets/img/` (Vite les agrega hash al build, así nunca quedan cacheadas viejas). Scripts en `scripts/`: `prep-images.mjs` (hero, doctor, logo), `program-images.mjs` (recorte de las fotos de programas), `variants.mjs` (tamaños para srcset) y `og-image.mjs` (`public/og.jpg`, 1200x630)
 
 ## Fotos
 - Hero: `foto hero.png` (stock provisto).
