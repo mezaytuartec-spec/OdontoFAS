@@ -90,7 +90,7 @@ export function Programs({ onPick }) {
           {PROGRAMS.map((p) => (
             <article key={p.key} className="reveal card flex flex-col overflow-hidden p-2.5">
               <div className="relative overflow-hidden rounded-[1.25rem] bg-canvas">
-                <img src={p.img} srcSet={`${p.img.replace(".webp", "-400.webp")} 400w, ${p.img} 720w`} sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw" alt={p.alt} width="720" height="496" loading="lazy" className="aspect-[16/11] w-full object-cover object-top" />
+                <img src={p.img} srcSet={`${p.img.replace(".webp", "-400.webp")} 400w, ${p.img} 720w`} sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw" alt={p.alt} width="720" height="495" loading="lazy" className="aspect-[16/11] w-full object-cover" />
                 <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-[13px] font-semibold text-brand-800 shadow-sm">
                   <Clock className="size-3.5" aria-hidden="true" /> {p.tag}
                 </span>

@@ -5,10 +5,6 @@ const SETS = {
   'hero-mobile': [480],
   'hero-1600': [1000],
   'doctor-800': [480],
-  'p-implantes': [400],
-  'p-blanqueamiento': [400],
-  'p-carillas': [400],
-  'p-ninos': [400],
   logo: [300],
 };
 
